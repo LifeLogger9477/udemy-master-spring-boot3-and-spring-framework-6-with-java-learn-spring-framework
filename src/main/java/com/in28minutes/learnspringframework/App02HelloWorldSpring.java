@@ -25,7 +25,12 @@ public class App02HelloWorldSpring {
     System.out.println( context.getBean( "age" ) );
 
     System.out.println( context.getBean( "person" ) );
+    System.out.println( context.getBean( "person2MethodCall" ) );
+    System.out.println( context.getBean( "person3Parameters" ) );
 
-    System.out.println( context.getBean( "address" ) );
+    System.out.println( context.getBean( "address2" ) );
+
+    // class 로 받아오기 -> 현재는 에러가 발생하여 일단 주석 처리
+    // System.out.println( context.getBean( Address.class ) );
   }
 }

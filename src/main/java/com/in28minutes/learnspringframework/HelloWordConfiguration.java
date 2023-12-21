@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 // record in JDK 16
 // getter & setter 를 사용할 필요가 없다.
-record Person(String name, int age) {
+record Person(String name, int age, Address address) {
 };
 
 // address
@@ -36,12 +36,39 @@ public class HelloWordConfiguration {
   @Bean
   public Person person() {
 
-    return new Person( "Ravi", 20 );
+    return new Person(
+        "Ravi",
+        20,
+        new Address( "Main Street", "Utrecht" ) );
+  }
+
+  // Bean 재사용
+  @Bean
+  public Person person2MethodCall() {
+
+    return new Person( name(), age(), address() );
   }
 
   @Bean
+  public Person person3Parameters(
+      String name,
+      int age,
+      Address address3
+  ) {   // name, age, address3
+
+    return new Person( name, age, address3 );
+  }
+
+  // Bean name 변경 방법
+  @Bean(name = "address2")
   public Address address() {
 
     return new Address( "Baker Street", "London" );
+  }
+
+  @Bean(name = "address3")
+  public Address address33() {
+
+    return new Address( "Motinagar", "Hyderabad" );
   }
 }
