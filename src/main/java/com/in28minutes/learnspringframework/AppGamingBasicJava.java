@@ -12,11 +12,16 @@ import com.in28minutes.learnspringframework.game.SuperContraGame;
 public class AppGamingBasicJava {
 
   public static void main(String[] args) {
-
+ 
+    // 1: Object Creation
     //var game = new MarioGame();
     //var game = new SuperContraGame();
     var game = new PacmanGame();
+
+    // 2: Object Creation + Wiring of Dependencies
+    // Game is dependency of GameRunner
     var gameRunner = new GameRunner( game );
+
     gameRunner.run();
   }
 }
