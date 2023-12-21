@@ -4,7 +4,7 @@ package com.in28minutes.learnspringframework.game;
  * author : ms.Lee
  * date   : 2023-12-21
  */
-public class SuperContraGame {
+public class SuperContraGame implements GamingConsole{
 
   public void up() {
 
