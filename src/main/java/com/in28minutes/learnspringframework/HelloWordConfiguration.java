@@ -1,7 +1,9 @@
 package com.in28minutes.learnspringframework;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * author : ms.Lee
@@ -59,14 +61,39 @@ public class HelloWordConfiguration {
     return new Person( name, age, address3 );
   }
 
+  @Bean
+  @Primary
+  // No qualifying bean of type 'com.in28minutes.learnspringframework.Address'
+  // available: expected single matching bean but found 2: address2,address3
+  public Person person4Parameters(
+      String name,
+      int age,
+      Address address
+  ) {   // name, age, address
+
+    return new Person( name, age, address );
+  }
+
+  @Bean
+  public Person person5Qualifier(
+      String name,
+      int age,
+      @Qualifier("address3qualifier")Address address
+  ) {   // name, age, address
+
+    return new Person( name, age, address );
+  }
+
   // Bean name 변경 방법
   @Bean(name = "address2")
+  @Primary
   public Address address() {
 
     return new Address( "Baker Street", "London" );
   }
 
   @Bean(name = "address3")
+  @Qualifier("address3qualifier")
   public Address address33() {
 
     return new Address( "Motinagar", "Hyderabad" );

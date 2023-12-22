@@ -32,13 +32,19 @@ public class App02HelloWorldSpring {
 
     System.out.println( context.getBean( "address2" ) );
 
+    System.out.println( context.getBean( Person.class ) );
+
     // class 로 받아오기 -> 현재는 에러가 발생하여 일단 주석 처리
-    // System.out.println( context.getBean( Address.class ) );
+    System.out.println( context.getBean( Address.class ) );
+
+    // 일치하는 bean 처리하기
+    // @Primary 와 @Qualifier로 사용하면 된다.
+    System.out.println( context.getBean( "person5Qualifier" ) );
 
     // 사용하는 bean 확인하기
     Arrays.stream( context.getBeanDefinitionNames() )
         .forEach( System.out::println );
 
-    // 일치하는 bean 처리하기
+
   }
 }
