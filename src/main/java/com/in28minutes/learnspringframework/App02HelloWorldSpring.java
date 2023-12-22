@@ -4,6 +4,8 @@ import com.in28minutes.learnspringframework.game.GameRunner;
 import com.in28minutes.learnspringframework.game.PacmanGame;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+
 /**
  * author : ms.Lee
  * date   : 2023-12-21
@@ -32,5 +34,11 @@ public class App02HelloWorldSpring {
 
     // class 로 받아오기 -> 현재는 에러가 발생하여 일단 주석 처리
     // System.out.println( context.getBean( Address.class ) );
+
+    // 사용하는 bean 확인하기
+    Arrays.stream( context.getBeanDefinitionNames() )
+        .forEach( System.out::println );
+
+    // 일치하는 bean 처리하기
   }
 }
