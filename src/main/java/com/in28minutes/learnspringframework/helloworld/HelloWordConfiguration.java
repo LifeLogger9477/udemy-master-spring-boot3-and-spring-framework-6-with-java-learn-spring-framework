@@ -1,4 +1,4 @@
-package com.in28minutes.learnspringframework;
+package com.in28minutes.learnspringframework.helloworld;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -63,7 +63,7 @@ public class HelloWordConfiguration {
 
   @Bean
   @Primary
-  // No qualifying bean of type 'com.in28minutes.learnspringframework.Address'
+  // No qualifying bean of type 'com.in28minutes.learnspringframework.helloworld.Address'
   // available: expected single matching bean but found 2: address2,address3
   public Person person4Parameters(
       String name,
